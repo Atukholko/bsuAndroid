@@ -14,8 +14,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.form)
 
         ok_button.setOnClickListener {
-            val intent = Intent(this, SecondActivity::class.java)
-            intent.putExtra("valueFirstActivity", enter_value.text.toString())
+            val intent = Intent(this, SecondActivity::class.java).apply {
+                putExtra("valueFirstActivity", enter_value.text.toString())
+            }
             startActivityForResult(intent, REQUEST_CODE)
         }
     }

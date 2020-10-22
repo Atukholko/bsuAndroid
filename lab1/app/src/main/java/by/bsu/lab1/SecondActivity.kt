@@ -13,14 +13,16 @@ class SecondActivity : AppCompatActivity() {
 
         val intent = intent
         value.text = intent.getStringExtra("valueFirstActivity")
+        val firstVal = if(value.text.isNotEmpty()) value.text.toString().toInt() else 0
+        val secondVal = if(enter_value.text.isNotEmpty()) enter_value.text.toString().toInt() else 0
+        val sum = firstVal + secondVal
+
         ok_button.setOnClickListener {
-            val returnIntent = Intent()
-            val firstVal = if(value.text.isNotEmpty()) value.text.toString().toInt() else 0
-            val secondVal = if(enter_value.text.isNotEmpty()) enter_value.text.toString().toInt() else 0
-            val sum = firstVal + secondVal
-            returnIntent.putExtra("result", sum.toString())
+            val returnIntent = Intent().apply {
+                putExtra("result", sum.toString())
+            }
             setResult(Activity.RESULT_OK, returnIntent)
-            finish();
+            finish()
         }
     }
 }
