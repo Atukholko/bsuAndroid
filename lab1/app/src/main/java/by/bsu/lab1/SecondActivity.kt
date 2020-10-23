@@ -11,7 +11,7 @@ class SecondActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.form)
-
+        
         val intent = intent
         value.text = intent.getStringExtra("valueFirstActivity")
         val firstVal = if(value.text.isNotEmpty()) value.text.toString().toInt() else 0

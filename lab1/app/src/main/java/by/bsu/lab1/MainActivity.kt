@@ -14,8 +14,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.form)
 
         ok_button.setOnClickListener {
+            val valueFromText = value.text.toString().toInt()
+            val enteredValue = if(enter_value.text.isNotEmpty()) enter_value.text.toString().toInt() else 0
+            val sum = valueFromText + enteredValue
             val intent = Intent(this, SecondActivity::class.java).apply {
-                putExtra("valueFirstActivity", enter_value.text.toString())
+                putExtra("valueFirstActivity", sum.toString())
             }
             startActivityForResult(intent, REQUEST_CODE)
         }
