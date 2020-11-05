@@ -11,16 +11,16 @@ class SecondActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.form)
-        
-        val intent = intent
-        value.text = intent.getStringExtra("valueFirstActivity")
-        val firstVal = if(value.text.isNotEmpty()) value.text.toString().toInt() else 0
+
+        val receivedIntent = intent
+        value.text = receivedIntent.getStringExtra("valueFirstActivity")
+        val valFirstActivity = if(value.text.isNotEmpty()) value.text.toString().toInt() else 0
 
         ok_button.setOnClickListener {
-            val secondVal = if(enter_value.text.isNotEmpty()) enter_value.text.toString().toInt() else 0
-            val sum = firstVal + secondVal
+            val valSecondActivity = if(enter_value.text.isNotEmpty()) enter_value.text.toString().toInt() else 0
+            val result = valFirstActivity + valSecondActivity
             val returnIntent = Intent().apply {
-                putExtra("result", sum.toString())
+                putExtra("result", result.toString())
             }
             setResult(Activity.RESULT_OK, returnIntent)
             finish()
