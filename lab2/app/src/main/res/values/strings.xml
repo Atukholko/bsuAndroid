@@ -3,4 +3,7 @@
     <string name="start_val">0</string>
     <string name="enter_value">enter value</string>
     <string name="ok">ok</string>
+    <string name="landscape">landscape</string>
+    <string name="portrait">portrait</string>
+    <string name="undefined">undefined</string>
 </resources>

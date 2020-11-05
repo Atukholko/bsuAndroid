@@ -2,16 +2,23 @@ package by.bsu.lab1
 
 import android.app.Activity
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.content.res.Configuration
 import android.os.Bundle
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.form.*
+
 
 class MainActivity : AppCompatActivity() {
     private val REQUEST_CODE = 10
+    private val ACTIVITY_NAME = "MainActivity"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.form)
+
+        activityName.text = ACTIVITY_NAME
 
         ok_button.setOnClickListener {
             val valueTextView = value.text.toString().toInt()
@@ -31,5 +38,15 @@ class MainActivity : AppCompatActivity() {
                 value.text = result
             }
         }
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        val toastText: String = when (newConfig.orientation) {
+            Configuration.ORIENTATION_PORTRAIT -> (applicationContext.resources.getString(R.string.landscape))
+            Configuration.ORIENTATION_LANDSCAPE -> (applicationContext.resources.getString(R.string.portrait))
+            else -> (applicationContext.resources.getString(R.string.undefined))
+        }
+        Toast.makeText(this, toastText, Toast.LENGTH_SHORT).show();
     }
 }

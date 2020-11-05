@@ -3,4 +3,7 @@
     <string name="start_val">0</string>
     <string name="enter_value">введите значение</string>
     <string name="ok">подтвердить</string>
+    <string name="landscape">ландшафтный</string>
+    <string name="portrait">портретный</string>
+    <string name="undefined">не определена</string>
 </resources>
