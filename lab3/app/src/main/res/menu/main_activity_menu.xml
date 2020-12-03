@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/plus"
+          android:title="@string/service_plus">
+    </item>
+    <item android:id="@+id/multiply"
+          android:title="@string/service_multiply">
+    </item>
+    <item android:id="@+id/divide"
+          android:title="@string/service_divide">
+    </item>
+</menu>
